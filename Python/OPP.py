@@ -1,3 +1,5 @@
+import csv
+
 class Item:
   pay_rate = 0.8
   all = []
@@ -21,15 +23,19 @@ class Item:
   def apply_discount(self):
     self.price = self.price * self.pay_rate
 
+  @classmethod
+  def instantiate_from_csv(cls):
+    with open('items.csv', 'r') as f:
+      reader = csv.DictReader(f)
+      items = list(reader)
+
+    for item in items:
+        print(item)
+
   # Change the way a object is represented
   def __repr__(self):
     return f"Item('{self.name}', {self.price}, {self.quantity})"
 
-item1 = Item("Phone", 100, 1)
-item2 = Item("Laptop", 1000, 3)
-item3 = Item("Cable", 10, 5)
-item4 = Item("Mouse", 50, 5)
-item5 = Item("Keyboard", 75, 5)
 
 # item2.has_numpad = False //You can add atributes to certain objects 
 
@@ -46,7 +52,8 @@ item5 = Item("Keyboard", 75, 5)
 # item2.apply_discount()
 # print(item2.price)
 
-print(Item.all)  # Shows the number of instances
+# print(Item.all)  # Shows the number of instances
 #for instances in Item.all: The names of the intances
 #  print(instances.name)
 
+Item.instantiate_from_csv()
