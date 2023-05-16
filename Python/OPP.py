@@ -30,7 +30,12 @@ class Item:
       items = list(reader)
 
     for item in items:
-        print(item)
+        Item(
+          name=item.get('name'),
+          price=item.get('price'),
+          quantity=item.get('quantity'),
+
+        )
 
   # Change the way a object is represented
   def __repr__(self):
