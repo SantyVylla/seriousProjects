@@ -1,0 +1,3 @@
+public enum Día {
+    LUNES, MARTES, MIERCOLES, JUEVES, VIERNES, SABADO, DOMINGO
+}
