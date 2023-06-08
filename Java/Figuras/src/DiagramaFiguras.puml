@@ -1,0 +1,14 @@
+@startuml
+skinparam defaultFontName Century Gothic
+class Cuadrado{
+-longitud: double
+-color: Color
++dibujar()
+}
+enum Color{
+-PINK
+-BLUE
+-MAGENTA
+-CYAN
+}
+@enduml
