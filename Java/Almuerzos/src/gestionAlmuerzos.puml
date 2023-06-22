@@ -1,11 +1,18 @@
 @startuml
-'https://plantuml.com/sequence-diagram
+class Almuerzo {
+- PlatoPrincipal[]
+- Aperitivo[]
+- Postre[]
+- Bebida[]
+}
+Enum TipodeAlmuerzo {
+- POLI
+- EJECUTIVO
+}
+class PoliComedor {
++ elegirAlmuerzo()
+}
+PoliComedor "*"--> Almuerzo
+PoliComedor "cobra"--> TipodeAlmuerzo
 
-autonumber
-
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
-
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
 @enduml
