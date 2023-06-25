@@ -1,0 +1,10 @@
+@startuml
+class CuentaBancaria {
+-numeroDeCuenta
+-titular
+-saldo
++depositarDinero()
++retirarDinero()
++verEstado()
+}
+@enduml

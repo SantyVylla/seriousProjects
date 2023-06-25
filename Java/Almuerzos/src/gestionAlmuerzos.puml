@@ -1,0 +1,18 @@
+@startuml
+class Almuerzo {
+- PlatoPrincipal[]
+- Aperitivo[]
+- Postre[]
+- Bebida[]
+}
+Enum TipodeAlmuerzo {
+- POLI
+- EJECUTIVO
+}
+class PoliComedor {
++ elegirAlmuerzo()
+}
+PoliComedor "*"--> Almuerzo
+PoliComedor "cobra"--> TipodeAlmuerzo
+
+@enduml
