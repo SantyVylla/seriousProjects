@@ -53,7 +53,16 @@ public class Persona {
             System.out.println("No se han establecido objetivos.");
         } else {
             System.out.println("Verificando avances...");
-            // Lógica para verificar los avances y mostrarlos por pantalla
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            if (peso > objetivo.getPeso()) {
+                System.out.println("¡Felicidades! Has logrado tu objetivo.");
+            } else {
+                System.out.println("¡Sigue así! Estás cerca de lograr tu objetivo.");
+            }
         }
     }
 

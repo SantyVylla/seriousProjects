@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import javazoom.jl.player.Player;
 
 public class SpotifyPlayer extends Spotify {
-    private int limiteCanciones = 1;
+    private int limiteCanciones = 3;
 
     public void reproductor(User user) {
         SpotifyPlayer player = new SpotifyPlayer();
