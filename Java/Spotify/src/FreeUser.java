@@ -31,15 +31,6 @@ public class FreeUser extends User {
         }
     }
 
-    @Override
-    public void play(Song song) {
-        System.out.println("Playing song: " + song.getTitle());
-    }
-
-    public void showAdvertisement() {
-        System.out.println("Displaying advertisement...");
-    }
-
     public void addPlaylist(Playlist playlist) {
         getPlaylists().add(playlist);
     }

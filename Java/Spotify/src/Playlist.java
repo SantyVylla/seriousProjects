@@ -14,8 +14,10 @@ public class Playlist {
         return name;
     }
 
-    public void addSong(Song song) {
-        songs.add(song);
+    public void addSongs(Song... songsToAdd) {
+        for (Song song : songsToAdd) {
+            songs.add(song);
+        }
     }
 
     public List<Song> getSongs() {
@@ -25,6 +27,10 @@ public class Playlist {
     @Override
     public String toString() {
         return name + " - " + songs.size() + " songs";
+    }
+
+    public void addSong(Song song) {
+        songs.add(song);
     }
 }
 

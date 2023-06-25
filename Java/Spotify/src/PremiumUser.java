@@ -20,6 +20,10 @@ public class PremiumUser extends User {
         super.createPlaylist(name);
     }
 
+    public void play(Song song) {
+        System.out.println("Playing song: " + song.getTitle());
+    }
+
     @Override
     public void deletePlaylist(String name) {
         if (this.getPlaylists().size() > 1) {

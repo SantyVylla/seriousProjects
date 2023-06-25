@@ -37,7 +37,7 @@ public abstract class User {
     public void addSongToPlaylist(Song song, String playlistName) {
         for (Playlist playlist : playlists) {
             if (playlist.getName().equals(playlistName)) {
-                playlist.addSong(song);
+                playlist.addSongs(song);
                 break;
             }
         }
@@ -59,8 +59,5 @@ public abstract class User {
         }
     }
 
-    public void play(Song song) {
-        System.out.println("Playing " + song);
-    }
 }
 
