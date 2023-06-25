@@ -1,0 +1,34 @@
+@startuml
+abstract class Spotify {
++ reproducirPlaylist()
+}
+class Playlist {
+- Canción: Canción
+}
+class Canción {
+- título: String
+- album: String
+- artista: String
+}
+class UsuarioFree {
+- nombreUsuario: String
+- cancionesGustadas: List<String>
+- Playlist: Playlist
++ meGusta()
++ crearPlaylist()
++ añadirAPlaylist()
+}
+class UsuarioPremium{
+- cancionesDescargadas: List<String>
++ reproducirCancion()
++ descargarCancion()
+}
+Spotify --> "*" Canción
+Spotify -l-> "*" Playlist
+Playlist -u-> "*" Canción
+UsuarioFree --> "*" Playlist
+Spotify --> "*" UsuarioFree
+UsuarioFree <|-- UsuarioPremium
+UsuarioPremium --> "*" Canción
+UsuarioPremium --> "*" Playlist
+@enduml
