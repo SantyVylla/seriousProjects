@@ -4,7 +4,8 @@ import java.io.FileInputStream;
 import javazoom.jl.player.Player;
 
 public class SpotifyPlayer extends Spotify {
-    private int limiteCanciones = 3;
+    private int limiteCanciones = 1;
+
     public void reproductor(User user) {
         SpotifyPlayer player = new SpotifyPlayer();
         String carpetaMusica = "C:\\Users\\USER\\projects\\Java\\Spotify\\src\\Songs";
@@ -13,40 +14,27 @@ public class SpotifyPlayer extends Spotify {
         File[] archivos = carpeta.listFiles();
         int contadorCanciones = 0;
 
-        if (thereIs(archivos)) {
-            for (File archivo : archivos) {
-                if (!reproducir(archivo)) {
-                    continue;
-                }
-                String rutaArchivo = archivo.getAbsolutePath();
-                Playlist playlist = new Playlist("My Playlist");
-                Song song = new Song(archivo.getName(), "Unknown Artist", "Unknown Album");
-                playlist.addSong(song);
 
-                player.playlists.add(playlist);
-                player.reproducirArchivoMP3(rutaArchivo);
-
-                if (user instanceof FreeUser) {
-                    if (limiteAlcanzado(contadorCanciones)) {
-                            player.mostrarPublicidad();
-                    }
-                    contadorCanciones++;
-                }
-
+        for (File archivo : archivos) {
+            if (!reproducir(archivo)) {
+                continue;
             }
+            String rutaArchivo = archivo.getAbsolutePath();
+            Playlist playlist = new Playlist("My Playlist");
+            Song song = new Song(archivo.getName(), "Unknown Artist", "Unknown Album");
+            playlist.addSong(song);
+
+            player.playlists.add(playlist);
+            player.reproducirArchivoMP3(rutaArchivo);
+
+            if (user instanceof FreeUser) {
+                if (limiteAlcanzado(contadorCanciones)) {
+                    player.mostrarPublicidad();
+                }
+                contadorCanciones++;
+            }
+
         }
-    }
-
-    private static boolean reproducir(File archivo) {
-        return archivo.isFile() && archivo.getName().endsWith(".mp3");
-    }
-
-    private static boolean thereIs(File[] archivos) {
-        return archivos != null;
-    }
-
-    private boolean limiteAlcanzado(int contadorCanciones) {
-        return contadorCanciones % limiteCanciones == 0 && contadorCanciones > 0;
     }
 
     public void reproducirArchivoMP3(String rutaArchivo) {
@@ -89,5 +77,18 @@ public class SpotifyPlayer extends Spotify {
             e.printStackTrace();
         }
     }
+
+    private static boolean reproducir(File archivo) {
+        return archivo.isFile() && archivo.getName().endsWith(".mp3");
+    }
+
+    private static boolean thereIs(File[] archivos) {
+        return archivos != null;
+    }
+
+    private boolean limiteAlcanzado(int contadorCanciones) {
+        return contadorCanciones % limiteCanciones == 0 && contadorCanciones > 0;
+    }
+
 }
 
