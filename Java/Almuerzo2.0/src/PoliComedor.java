@@ -10,16 +10,16 @@ public class PoliComedor {
     private Map<String, Almuerzo> menu;
 
     public PoliComedor() {
-        almuerzoHumilde = new Almuerzo("Sopa de Fideos", "Seco de Pollo", "Helado con Galletas", "Agua");
-        almuerzoHumilde2 = new Almuerzo("Sopa de Letras", "Estofado de Carne", "Una Mandarina", "Quaker");
-        almuerzoEjecutivo = new AlmuerzoEjecutivo("Rollitos primavera", "Pasta Italiana", "Crème brûlée", "Vino");
-        almuerzoEjecutivo2 = new AlmuerzoEjecutivo("Bruschetta", "Moussaka griega", "Tiramisú", "Mojito");
+        almuerzoHumilde = new Almuerzo("Almuerzo Humilde: ","Sopa de Fideos", "Seco de Pollo", "Helado con Galletas", "Agua");
+        almuerzoHumilde2 = new Almuerzo("Almuerzo Humilde 2: ","Sopa de Letras", "Estofado de Carne", "Una Mandarina", "Quaker");
+        almuerzoEjecutivo = new AlmuerzoEjecutivo("Almuerzo Ejecutivo: ","Rollitos primavera", "Pasta Italiana", "Crème brûlée", "Vino");
+        almuerzoEjecutivo2 = new AlmuerzoEjecutivo("Almuerzo Ejecutivo 2: ","Bruschetta", "Moussaka griega", "Tiramisú", "Mojito");
 
         menu = new HashMap<>();
-        menu.put("almuerzoHumilde", almuerzoHumilde);
-        menu.put("almuerzoHumilde2", almuerzoHumilde2);
-        menu.put("almuerzoEjecutivo", almuerzoEjecutivo);
-        menu.put("almuerzoEjecutivo2", almuerzoEjecutivo2);
+        menu.put("Almuerzo Humilde", almuerzoHumilde);
+        menu.put("Almuerzo Humilde 2", almuerzoHumilde2);
+        menu.put("Almuerzo Ejecutivo", almuerzoEjecutivo);
+        menu.put("Almuerzo Ejecutivo 2", almuerzoEjecutivo2);
     }
 
 

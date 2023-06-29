@@ -58,7 +58,7 @@ public class Persona {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            if (peso > objetivo.getPeso()) {
+            if (peso <= objetivo.getPeso()) {
                 System.out.println("¡Felicidades! Has logrado tu objetivo.");
             } else {
                 System.out.println("¡Sigue así! Estás cerca de lograr tu objetivo.");
@@ -70,52 +70,9 @@ public class Persona {
         this.objetivo = objetivo;
     }
 
-    // Getters y setters
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
     public double getPeso() {
         return peso;
     }
 
-    public void setPeso(double peso) {
-        this.peso = peso;
-    }
 
-    public double getAltura() {
-        return altura;
-    }
-
-    public void setAltura(double altura) {
-        this.altura = altura;
-    }
-
-    public Dieta getDieta() {
-        return dieta;
-    }
-
-    public void setDieta(Dieta dieta) {
-        this.dieta = dieta;
-    }
-
-    public PlanDeEjercicios getPlanDeEjercicios() {
-        return planDeEjercicios;
-    }
-
-    public void setPlanDeEjercicios(PlanDeEjercicios planDeEjercicios) {
-        this.planDeEjercicios = planDeEjercicios;
-    }
-
-    public Persona getObjetivo() {
-        return objetivo;
-    }
-
-    public void setObjetivo(Persona objetivo) {
-        this.objetivo = objetivo;
-    }
 }

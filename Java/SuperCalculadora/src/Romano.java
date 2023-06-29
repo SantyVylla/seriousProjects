@@ -1,7 +1,7 @@
 public class Romano extends Número {
-    private static final int[] valoresRomanos = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-    private static final String[] simbolosRomanos = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X",
-            "IX", "V", "IV", "I"};
+    private int decimal;
+    private int anterior;
+    private int repeticiones = 1;
 
     public Romano(String notación) {
         super(notación);
@@ -9,12 +9,23 @@ public class Romano extends Número {
 
     @Override
     protected void transformarADecimal() {
-        int decimal = 0;
-        int anterior = 0;
-
         for (int i = notación.length() - 1; i >= 0; i--) {
-            char letra = notación.charAt(i);
-            int valor = obtenerValorRomano(letra);
+            char c = notación.charAt(i);
+            int valor = obtenerValorRomano(c);
+
+            if (valor < 0) {
+                System.out.println("Número inválido");
+                return;
+            }
+
+            if (valor == anterior) {
+                repeticiones++;
+                if (repeticiones > 3) {
+                    return;
+                }
+            } else {
+                repeticiones = 1;
+            }
 
             if (valor < anterior) {
                 decimal -= valor;
@@ -24,11 +35,12 @@ public class Romano extends Número {
             }
         }
 
-        valor = decimal;
+        valor = (double) decimal;
+
     }
 
-    private int obtenerValorRomano(char letra) {
-        switch (letra) {
+    private int obtenerValorRomano(char c) {
+        switch (c) {
             case 'I':
                 return 1;
             case 'V':
@@ -44,23 +56,16 @@ public class Romano extends Número {
             case 'M':
                 return 1000;
             default:
-                return 0;
+                System.out.println("Calculo no realizado");
+                return -1;
         }
+
     }
 
     @Override
     protected void transformarANotación() {
-        StringBuilder builder = new StringBuilder();
-        int numero = (int) valor;
+        notación = String.valueOf(valor);
 
-        for (int i = 0; i < valoresRomanos.length; i++) {
-            while (numero >= valoresRomanos[i]) {
-                builder.append(simbolosRomanos[i]);
-                numero -= valoresRomanos[i];
-            }
-        }
-
-        notación = builder.toString();
     }
 
     @Override
@@ -68,4 +73,8 @@ public class Romano extends Número {
         return valor;
     }
 
+    @Override
+    public double obtenerComplejo() {
+        return 0;
+    }
 }

@@ -3,7 +3,7 @@ public class Main {
         PoliComedor poliComedor = new PoliComedor();
 
         //poliComedor.verMenu();  //Muestra el menú
-        poliComedor.elegirAlmuerzo("almuerzoHumilde"); //Cobra el valor del almuerzo elegido
+        poliComedor.elegirAlmuerzo("Almuerzo Ejecutivo 2"); //Cobra el valor del almuerzo elegido
 
     }
 }
