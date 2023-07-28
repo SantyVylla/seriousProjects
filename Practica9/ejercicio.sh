@@ -29,5 +29,5 @@ while true; do
     eleccionAlea
     ganador "$jugador1" "$jugador2"
     echo "Siguiente partida en 5 minutos..."
-    sleep 300
+    break
 done
