@@ -13,8 +13,9 @@ public class Cuadrilatero extends FiguraGeometrica {
 
     @Override
     public void dibujar() {
-        for (int i = 0; i < lado; i++) {
-            for (int j = 0; j < lado2; j++) {
+        System.out.println("Cuadrilatero: ");
+        for (int i = 0; i < lado2; i++) {
+            for (int j = 0; j < lado; j++) {
                 System.out.print("#"); // Imprimir un carácter para representar el cuadrilátero
             }
             System.out.println(); // Saltar a la siguiente línea después de imprimir una fila completa

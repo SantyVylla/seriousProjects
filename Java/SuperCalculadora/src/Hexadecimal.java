@@ -19,4 +19,9 @@ public class Hexadecimal extends Número {
     public double obtenerDecimal() {
         return valor;
     }
+
+    @Override
+    public double obtenerComplejo() {
+        return 0;
+    }
 }
