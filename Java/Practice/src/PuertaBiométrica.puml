@@ -1,0 +1,31 @@
+@startuml
+class Puerta {
+- ControlDePuerta control
++ Puerta(aula: String)
++ acceder(nombre: String): void
++ obtenerRegistro(): void
+}
+
+class ControlDePuerta {
+- String aula
+- Map<String, List<AccesoRegistro>> accesosAutorizados
+- Map<String, List<AccesoRegistro>> accesosNoAutorizados
++ ControlDePuerta(aula: String)
++ intentarAcceso(nombre: String): boolean
++ registrarAcceso(nombre: Acceso)
++ obtenerAccesosAutorizados(): Map<String, List<AccesoRegistro>>
++ obtenerAccesosNoAutorizados(): Map<String, List<AccesoRegistro>>
+}
+
+class AccesoRegistro{
+- String aula
+- boolean autorizado
+- LocalDateTime hora
++ AccesoRegistro(aula: String, autorizado: boolean, hora: LocalDateTime)
++ esAutorizado(): boolean
+}
+
+Puerta "1" --> "1" ControlDePuerta
+ControlDePuerta "1" o-- "1..*" AccesoRegistro
+
+@enduml
