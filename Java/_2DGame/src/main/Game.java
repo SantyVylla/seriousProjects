@@ -7,7 +7,7 @@ public class Game {
         JFrame window = new JFrame();  // Create a new window
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Close the program when the window is closed
         window.setResizable(false); // Prevent the user from resizing the window
-        window.setTitle("2D Game"); // Set the title of the window
+        window.setTitle("Bomberman"); // Set the title of the window
 
         Panel panel = new Panel(); // Create a new panel
         window.add(panel); // Add the panel to the window

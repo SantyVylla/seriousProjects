@@ -11,8 +11,4 @@ public enum Acceso {
      * Acceso no autorizado.
      */
     NO_AUTORIZADO
-
-    /*
-      Manera de escribir comentarios en Java.
-     */
 }

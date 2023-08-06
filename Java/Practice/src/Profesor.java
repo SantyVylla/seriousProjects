@@ -1,5 +1,11 @@
+/**
+ * Enumeración de los profesores que pueden acceder al sistema.
+ * Cada profesor tiene un nombre y un acceso.
+ * El acceso puede ser autorizado o no autorizado.
+ *
+ */
 public enum Profesor {
-    //Lista de profesores
+
     CARLOS("Carlos", Acceso.AUTORIZADO),
     ERICK("Erick", Acceso.NO_AUTORIZADO),
     PEPITO("Pepito", Acceso.NO_AUTORIZADO),

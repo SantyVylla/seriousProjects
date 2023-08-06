@@ -1,8 +1,8 @@
 public class Puerta {
-    private ControlAcceso control;
+    private ControlDePuerta control;
 
-    public Puerta(ControlAcceso control) {
-        this.control = control;
+    public Puerta(String nombreAula) {
+        this.control = new ControlDePuerta(nombreAula);
     }
 
     public void acceder(Profesor profesor) {
@@ -21,14 +21,11 @@ public class Puerta {
         control.obtenerRegistroNoAutorizados();
     }
 
-
     protected void bloquearAcceso(String nombre) {
-        System.out.println(String.format("Acceso denegado para %s", nombre));
+        System.out.printf("Acceso denegado para %s%n", nombre);
     }
 
     protected void permitirAcceso(String nombre) {
-        System.out.println(String.format("Hola, bienvenido al aula %s", nombre));
+        System.out.printf("Hola, bienvenido al aula %s%n", nombre);
     }
-
 }
-

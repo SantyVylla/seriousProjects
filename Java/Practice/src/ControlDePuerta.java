@@ -2,6 +2,9 @@ import java.time.LocalDateTime;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * Control de acceso a un aula.
+ */
 public class ControlDePuerta implements ControlAcceso {
     private final String aula;
     private final Map<String, List<AccesoRegistro>> accesosAutorizados;
@@ -9,17 +12,24 @@ public class ControlDePuerta implements ControlAcceso {
 
     public ControlDePuerta(String aula) {
         this.aula = aula;
-        this.accesosAutorizados = new ConcurrentHashMap<>();
-        this.accesosNoAutorizados = new ConcurrentHashMap<>();
+        this.accesosAutorizados = new HashMap<>();
+        this.accesosNoAutorizados = new HashMap<>();
         inicializarAccesos();
     }
 
+    /**
+     * Inicializa los accesos autorizados y no autorizados.
+     */
     private void inicializarAccesos() {
         accesosAutorizados.put(Profesor.CARLOS.getNombre(), new ArrayList<>());
         accesosNoAutorizados.put(Profesor.ERICK.getNombre(), new ArrayList<>());
         accesosNoAutorizados.put(Profesor.PEPITO.getNombre(), new ArrayList<>());
     }
 
+    /**
+     * Verifica si el acceso es permitido.
+     *
+     */
     public boolean intentarAcceso(String nombre) {
         try {
             LocalDateTime horaIntento = LocalDateTime.now();
@@ -35,7 +45,9 @@ public class ControlDePuerta implements ControlAcceso {
         }
     }
 
-
+    /**
+     * Registra el acceso.
+     */
     public void registrarAcceso(String nombre, String aula, boolean autorizado, LocalDateTime horaIntento) {
         Map<String, List<AccesoRegistro>> registros = autorizado ? accesosAutorizados : accesosNoAutorizados;
         List<AccesoRegistro> registroActual = registros.getOrDefault(nombre, new ArrayList<>());
@@ -51,6 +63,10 @@ public class ControlDePuerta implements ControlAcceso {
         return accesosNoAutorizados;
     }
 
+    /**
+     * Imprime los registros.
+     * @param registros
+     */
     protected void imprimirRegistro(Map<String, List<AccesoRegistro>> registros) {
         registros.forEach((nombre, accesoRegistros) ->
                 accesoRegistros.forEach(accesoRegistro -> {

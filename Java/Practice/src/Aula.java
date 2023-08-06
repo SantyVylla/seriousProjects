@@ -5,6 +5,7 @@ public enum Aula {
 
     private final String nombre;
 
+
     Aula(String nombre) {
         this.nombre = nombre;
     }
@@ -13,14 +14,17 @@ public enum Aula {
         return nombre;
     }
 
-    // Para obtener la lista de todas las aulas:
-    // public static Aula[] allAulas() {
+    /**
+     * Obtener todas las aulas
+     * @return arreglo de aulas
+     */
+    //public static Aula[] allAulas() {
     //     return values();
-    // }
+    //}
 
     // U obtenerla por su nombre:
-    // public static Aula fromNombre(String nombre) {
+    //public static Aula fromNombre(String nombre) {
     //     return valueOf(nombre);
-    // }
+    //}
 }
 

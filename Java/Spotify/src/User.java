@@ -8,8 +8,8 @@ public abstract class User {
 
     public User(String name) {
         this.name = name;
-        this.likedSongs = new ArrayList<>();
-        this.playlists = new ArrayList<>();
+        likedSongs = new ArrayList<>();
+        playlists = new ArrayList<>();
     }
 
     public void likeSong(Song song) {
@@ -26,37 +26,26 @@ public abstract class User {
     }
 
     public void deletePlaylist(String name) {
-        for (Playlist playlist : playlists) {
-            if (playlist.getName().equals(name)) {
-                playlists.remove(playlist);
-                break;
-            }
-        }
+        playlists.removeIf(playlist -> playlist.getName().equals(name));
     }
 
     public void addSongToPlaylist(Song song, String playlistName) {
         for (Playlist playlist : playlists) {
             if (playlist.getName().equals(playlistName)) {
-                playlist.addSongs(song);
+                playlist.addSong(song);
                 break;
             }
         }
     }
 
-    protected void getLikedSongs() {
+    public void showLikedSongs() {
         for (Song song : likedSongs) {
             System.out.println(song);
         }
     }
 
-    protected List<Playlist> getPlaylists() {
+    public List<Playlist> getPlaylists() {
         return playlists;
-    }
-
-    public void showPlaylists() {
-        for (Playlist playlist : playlists) {
-            System.out.println(playlist);
-        }
     }
 
 }
