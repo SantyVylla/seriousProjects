@@ -19,4 +19,9 @@ public class Binario extends Número {
     public double obtenerDecimal() {
         return valor;
     }
+
+    @Override
+    public double obtenerComplejo() {
+        return 0;
+    }
 }

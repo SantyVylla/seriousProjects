@@ -9,33 +9,16 @@ public class PremiumUser extends User {
         downloadedSongs = new ArrayList<>();
     }
 
-    public void likeSong(Song... songs) {
-        for (Song song : songs) {
-            likeSong(song);
-        }
-    }
-
-    @Override
-    public void createPlaylist(String name) {
-        super.createPlaylist(name);
-    }
-
     public void play(Song song) {
         System.out.println("Playing song: " + song.getTitle());
     }
 
-    @Override
-    public void deletePlaylist(String name) {
-        if (this.getPlaylists().size() > 1) {
-            super.deletePlaylist(name);
-        }
-    }
-
     public void downloadSong(Song song) {
         System.out.println("Downloading song: " + song.getTitle());
+        downloadedSongs.add(song);
     }
 
-    public void downloadedSongs () {
+    public void showDownloadedSongs() {
         for (Song song : downloadedSongs) {
             System.out.println(song);
         }

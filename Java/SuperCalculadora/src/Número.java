@@ -16,5 +16,7 @@ public abstract class Número {
     protected abstract void transformarADecimal();
     protected abstract void transformarANotación();
     public abstract double obtenerDecimal();
+
+    public abstract double obtenerComplejo();
 }
 

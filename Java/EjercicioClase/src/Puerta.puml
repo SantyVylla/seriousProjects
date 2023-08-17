@@ -1,0 +1,19 @@
+@startuml
+class Puerta {
+- Sensor
++ acceder()
++ obtenerRegistro()
+}
+class Sensor {
+- aula
+- accesosAutorizados
+- accesosNoAutorizados
++ intentarAcceso()
++ registrarAcceso()
++ ObtenerAccesosAutorizados()
++ ObtenerAccesosNoAutorizados()
+}
+
+Puerta --> Sensor
+
+@enduml

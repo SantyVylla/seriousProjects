@@ -22,6 +22,11 @@ public class Decimal extends Número {
     }
 
     @Override
+    public double obtenerComplejo() {
+        return 0;
+    }
+
+    @Override
     public String toString() {
         return String.valueOf(valor);
     }

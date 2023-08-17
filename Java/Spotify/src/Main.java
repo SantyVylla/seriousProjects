@@ -1,6 +1,7 @@
 public class Main {
     public static void main(String[] args) {
         FreeUser freeUser = new FreeUser("Bernardo");
+        PremiumUser premiumUser = new PremiumUser("Felipe");
 
         Song barbieGirl = new Song("Barbie Girl", "Aqua", "Aquarium");
         Song calling = new Song("Calling", "Metro Boomin", "Not All Heroes Wear Capes");
@@ -9,12 +10,17 @@ public class Main {
         Song danger = new Song("Danger", "Offset", "FATHER OF 4");
 
         Playlist playlist = new Playlist("My Playlist");
-        playlist.addSongs(barbieGirl, calling, noHeart, annihilate, danger);
-        freeUser.addPlaylist(playlist);
-        freeUser.likeSong(barbieGirl, calling, noHeart, danger);
+        playlist.addSong(barbieGirl);
+        playlist.addSong(calling);
+        playlist.addSong(noHeart);
+        playlist.addSong(annihilate);
+
+        freeUser.likeSong(barbieGirl);
+        freeUser.likeSong(calling);
+        freeUser.likeSong(noHeart);
+        playlist.play();
 
 
-        SpotifyPlayer spotifyPlayer = new SpotifyPlayer();
-        spotifyPlayer.reproductor(freeUser);
+
     }
 }

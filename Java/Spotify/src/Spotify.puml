@@ -2,6 +2,9 @@
 abstract class Spotify {
 + reproducirPlaylist()
 }
+abstract class User {
++ reproducirPlaylist()
+}
 class Playlist {
 - Canción: Canción
 }
@@ -28,7 +31,9 @@ Spotify -l-> "*" Playlist
 Playlist -u-> "*" Canción
 UsuarioFree --> "*" Playlist
 Spotify --> "*" UsuarioFree
-UsuarioFree <|-- UsuarioPremium
+User <|-- UsuarioPremium
 UsuarioPremium --> "*" Canción
 UsuarioPremium --> "*" Playlist
+UsuarioFree --|> User
+
 @enduml
