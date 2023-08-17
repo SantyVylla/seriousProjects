@@ -25,6 +25,7 @@ esperar(){
 ------Siguiente partida en 5 minutos--------
 EOF
 	sleep 300
+	jugar
 }
 
 jugar(){
