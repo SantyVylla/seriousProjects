@@ -23,12 +23,11 @@ function ganador()
 }
 
 while true; do
-    echo $(date) 
     echo "-----------------------------"
     echo "Elige piedra, papel o tijera"
     read jugador1
     eleccionAlea
     ganador "$jugador1" "$jugador2"
     echo "Siguiente partida en 5 minutos..."
-    sleep 300
+    break
 done
